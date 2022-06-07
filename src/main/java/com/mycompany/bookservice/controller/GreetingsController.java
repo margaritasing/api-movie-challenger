@@ -9,7 +9,7 @@ public class GreetingsController {
 
     @GetMapping
     public String greet(){
-        return "Hola como estas te saludo desde un endpoint?";
+        return "Hola como estas ?";
     }
 
     /*@GetMapping("/withname/{name11}/{lname}")
