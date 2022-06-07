@@ -6,10 +6,6 @@ import com.mycompany.bookservice.repository.BookRepository;
 import com.mycompany.bookservice.service.BookService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -85,5 +81,10 @@ public class BookServiceImpl implements BookService {
             }
         }
         return bookDtos;
+    }
+
+    @Override
+    public BookEntity getBook(Long bookId) {
+        return bookRepository.findById(bookId).orElse(null);
     }
 }
