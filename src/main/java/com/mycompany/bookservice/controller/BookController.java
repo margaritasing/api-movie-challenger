@@ -1,6 +1,7 @@
 package com.mycompany.bookservice.controller;
 
 import com.mycompany.bookservice.dto.BookDTO;
+import com.mycompany.bookservice.entity.BookEntity;
 import com.mycompany.bookservice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -49,6 +51,12 @@ public class BookController {
     public HttpStatus deleteBook(@PathVariable Long bookId){
         bookService.deleteBook(bookId);
         return HttpStatus.NO_CONTENT;
+    }
+
+    @GetMapping("/{bookId}")
+    private BookEntity getBookById(@PathVariable Long bookId){
+        return  bookService.getBookById(bookId);
+
     }
 
 }
