@@ -4,6 +4,7 @@ import com.mycompany.bookservice.dto.BookDTO;
 import com.mycompany.bookservice.entity.BookEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookService {
 
@@ -12,5 +13,5 @@ public interface BookService {
     public void deleteBook(Long bookId);
     public BookDTO updateBookPrice(BookDTO bookDTO, Long bookId);
     public List<BookDTO> getAllBook();
-    public BookEntity getBook(Long bookId);
+    public BookEntity getBookById(Long bookId);
 }
