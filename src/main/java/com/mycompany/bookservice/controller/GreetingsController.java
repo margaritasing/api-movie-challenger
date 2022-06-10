@@ -12,15 +12,10 @@ public class GreetingsController {
         return "Hola como estas ?";
     }
 
-    @GetMapping("/withname/{name11}/{lname}")
-    public String greetWithName(@PathVariable("name11") String name, @PathVariable String lname){
-        return "How are you "+name+" "+lname+"?";
-    }
-
-    /*@GetMapping("/withnamerp")
+    @GetMapping("/withnamerp")
     public String greetWithName(@RequestParam("name11") String name, @RequestParam String lname){
         return "How are you "+name+" "+lname+"?";
-    }*/
+    }
 
     @GetMapping("/withnamerppv/{empId}")
     public String greetWithName(@PathVariable("empId") Long employeeId, @RequestParam("name11") String name, @RequestParam String lname){
