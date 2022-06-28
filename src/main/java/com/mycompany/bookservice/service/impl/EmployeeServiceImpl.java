@@ -1,8 +1,11 @@
 package com.mycompany.bookservice.service.impl;
 
 import com.mycompany.bookservice.dto.EmployeeDTO;
+import com.mycompany.bookservice.entity.BookEntity;
+import com.mycompany.bookservice.entity.EmployeeEntity;
 import com.mycompany.bookservice.repository.EmployeeRepository;
 import com.mycompany.bookservice.service.EmployeeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +24,13 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Override
     public EmployeeDTO addEmployeee(EmployeeDTO employeeDTO) {
-        return null;
+        //convert DTO to ENTITY
+        EmployeeEntity employeeEntity = new EmployeeEntity();
+        BeanUtils.copyProperties(employeeDTO, employeeEntity);
+        employeeEntity = employeeRepository.save(employeeEntity);
+        BeanUtils.copyProperties(employeeEntity, employeeDTO);
+        return  employeeDTO;
+
     }
 
     @Override
